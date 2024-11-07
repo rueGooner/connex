@@ -1,17 +1,25 @@
 {
   "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3"
   },
   "name": "connex",
   "version": "1.0.0",
   "main": "dist/api/server.js",
   "scripts": {
+    "start": "ts-node api/app.ts",
     "build": "tsc",
-    "start": "node dist/api/server.js",
-    "watch": "tsc --watch"
+    "dev": "ts-node-dev --respawn --transpile-only api/app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-prometheus-middleware": "^1.2.0"
+  }
 }
