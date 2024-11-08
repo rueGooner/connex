@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="bg-slate-100 flex h-screen">
-      {responseData?.time && <LeftSection time={responseData.time} />}
+      {responseData?.epoch && <LeftSection time={responseData.epoch} />}
       {responseData?.metrics && <RightSection metrics={responseData.metrics} />}
     </div>
   );

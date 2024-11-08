@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 interface MetricsResponse {
-  time: string | null;
+  epoch: string | null;
   metrics: string | null;
 }
 
@@ -10,7 +10,7 @@ const REQUEST_INTERVAL = process.env.REACT_APP_REQUEST_INTERVAL || 30000;
 
 export const useMetricsData = () => {
   const [responseData, setResponseData] = useState<MetricsResponse>({
-    time: null,
+    epoch: null,
     metrics: null
   });
   const [loading, setLoading] = useState<boolean>(true);
@@ -18,12 +18,7 @@ export const useMetricsData = () => {
 
   const fetchData = async () => {
     try {
-      const [hmm, timeResponse, metricsResponse] = await Promise.all([
-        fetch(`${API_BASE_URL}`, {
-          headers: {
-            authorization: 'mysecrettoken'
-          }
-        }),
+      const [timeResponse, metricsResponse] = await Promise.all([
         fetch(`${API_BASE_URL}/time`, {
           headers: {
             authorization: 'mysecrettoken'
@@ -42,11 +37,10 @@ export const useMetricsData = () => {
 
       // Parse the responses
       const timeData = await timeResponse.json();
-      console.log(timeData);
       const metricsData = await metricsResponse.text();
 
       setResponseData({
-        time: timeData.time,
+        epoch: timeData.epoch,
         metrics: metricsData
       });
     } catch (error) {
