@@ -2,10 +2,12 @@ import express, { Application, Request, Response } from 'express';
 import { router as timeRoute } from './routes/time';
 import epm from 'express-prometheus-middleware';
 import { authoriseMetrics } from './middleware/authorisation';
+import cors from 'cors';
 
 const app: Application = express();
-const port: number = 5050;
+const port: string | 5050 = process.env.SERVER_PORT || 5050;
 
+app.use(cors());
 app.use('/time', timeRoute);
 app.use('/metrics', authoriseMetrics);
 
