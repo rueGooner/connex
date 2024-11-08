@@ -6,7 +6,7 @@ interface RightSectionProps {
 
 export const RightSection: FC<RightSectionProps> = ({metrics}) => {
   return (
-    <div className='flex-1 p-9 bg-green-100'>
+    <div className='flex-1 p-9 bg-green-100' data-testid='right-section'>
       <h2 className='text-xl font-bold'>Prometheus Metrics</h2>
       <div className='mt-4 bg-gray-100 p-4 rounded-lg overflow-auto max-h-[calc(100vh-300px)] shadow-lg'>
         {metrics ?

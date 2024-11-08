@@ -2,14 +2,6 @@ import React, { act } from 'react';
 import { render, screen } from '@testing-library/react';
 import { LeftSection } from './LeftSection';
 
-// Mock StopWatch component
-// jest.mock('./StopWatch', () => ({
-//   StopWatch: ({ seconds }: { seconds: number }) => (
-//     <div data-testid="stopwatch">Time Difference: {seconds}</div>
-//   ),
-// }));
-
-
 describe('LeftSection Component', () => {
 
   beforeEach(() => {
@@ -41,8 +33,8 @@ describe('LeftSection Component', () => {
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    
-    jest.spyOn(Date, 'now').mockRestore();
+
+    jest.restoreAllMocks();
   });
 
   test('cleans up interval when component unmounts', () => {

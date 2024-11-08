@@ -23,9 +23,9 @@ export const LeftSection: FC<LeftSectionProps> = ({ time }) => {
   }, [time]);
 
   return (
-    <div className='flex-1 p-8 font-bold'>
+    <div className='flex-1 p-8 font-bold' data-testid='left-section'>
       <h2 className='text-xl font-bold mb-4'>Current Server Time</h2>
-      <p className='text-lg bg-teal-200 text-slate-600 px-4 py-5 rounded shadow-lg flex justify-center'>Epoch Time: { time }</p>
+      <p className='text-lg bg-teal-200 text-slate-600 px-4 py-5 rounded shadow-lg flex justify-center' data-testid="epoch-time">Epoch Time: { time }</p>
       <StopWatch seconds={Math.floor(timeDifference / 1000)} />
     </div>
   )

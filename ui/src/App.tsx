@@ -8,8 +8,6 @@ import { RightSection } from './components/RightSection';
 function App() {
   const { responseData, loading, error } = useMetricsData();
 
-  console.log({ responseData, loading, error })
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 

@@ -8,8 +8,6 @@ interface MetricsResponse {
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URI;
 const REQUEST_INTERVAL = process.env.REACT_APP_REQUEST_INTERVAL || 30000;
 
-console.log("huh",  process.env)
-
 export const useMetricsData = () => {
   const [responseData, setResponseData] = useState<MetricsResponse>({
     time: null,
