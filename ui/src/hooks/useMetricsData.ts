@@ -43,11 +43,12 @@ export const useMetricsData = () => {
       }
 
       // Parse the responses
-      const timeData = await timeResponse.text();
+      const timeData = await timeResponse.json();
+      console.log(timeData);
       const metricsData = await metricsResponse.text();
 
       setResponseData({
-        time: timeData,
+        time: timeData.time,
         metrics: metricsData
       });
     } catch (error) {
